@@ -1,0 +1,20 @@
+<label for="currency">Choose curency:</label>
+
+<select>
+    {% for currency in code %}
+    <option value="{{ currency }}">
+{{ currency }}
+</option>
+{% endfor %}
+</select>
+
+
+<h3>Kwota</h3>
+<form action="{{ url_for('post_message') }}" method="POST"></form>
+            <textarea name="text"></textarea>
+            <input type="submit" class="like" value="Przelicz" />
+        </form>
+    </body>
+
+
+
