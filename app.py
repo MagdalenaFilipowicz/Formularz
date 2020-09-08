@@ -1,7 +1,6 @@
 import csv
 import requests
-from flask import Flask, render_template
-
+from flask import Flask, render_template, request
 
 app = Flask(__name__)
 
@@ -13,9 +12,10 @@ def hello():
 
 @app.route("/calc", methods=["POST"])
 def post_message():
-    x = input
-    return x 
-
+    x = request.form["amount"]
+    y = 2*int(x)
+    return str(y)
+    
 def get_rates():
     response = requests.get("http://api.nbp.pl/api/exchangerates/tables/C?format=json")
     data = response.json()
